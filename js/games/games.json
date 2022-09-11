@@ -1,0 +1,14 @@
+[
+    {
+        "game": "Snake",
+        "img_file": "assets/games/snake.png",
+        "img_alt": "Game picture with snake game.",
+        "service_name": "snake"
+    },
+    {
+        "game": "Tetris",
+        "img_file": "assets/games/tetris.webp",
+        "img_alt": "Game picture with tetris game.",
+        "service_name": "tetris"
+    }
+]
