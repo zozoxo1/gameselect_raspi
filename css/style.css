@@ -121,6 +121,7 @@ body, html {
     padding-block: 30px;
     background: inherit;
     position: relative;
+    margin-top: 15px;
 }
 
 .games .game {
@@ -179,6 +180,76 @@ body, html {
 
 
 /**========================================================================
+ *                           Login
+ *========================================================================**/
+
+.login {
+    display: inline-block;
+    background: rgba(255, 255, 255, .6);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 250px;
+    padding: 20px 15px;
+    box-shadow: 1px 1px 5px 0px black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login label {
+    display: block;
+    margin: 5px auto;
+}
+
+.login label > div {
+    display: inline-flex;
+    background: var(--color-1);
+    position: absolute;
+    padding: 1.5px;
+    border-radius: 0px 5px 5px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login label > div img {
+    filter: invert(1);
+}
+
+.login input[input-attribute="login-input"] {
+    padding: 5px;
+    appearance: none;
+    border: none;
+    outline: none;
+    border: 1px solid var(--color-1);
+    border-right: none;
+}
+
+.login input[type=submit] {
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: var(--color-1);
+    color: white;
+    padding: 8px 20px;
+    margin-top: 1em;
+}
+
+.login input[type=submit]:hover {
+    background: var(--color-2);
+}
+
+.login .login-message {
+    margin-bottom: 0;
+}
+
+.login .login-message.warning {
+    color: red;
+    animation: shake .5s 1;
+}
+
+/**========================================================================
  *                           Keyframes
  *========================================================================**/
 
@@ -202,6 +273,29 @@ body, html {
 
 }
 
+@keyframes shake {
+
+    20% {
+        translate: 5px 0;
+    }
+
+    40% {
+        translate: -5px 0;
+    }
+
+    60% {
+        translate: 5px 0;
+    }
+
+    80% {
+        translate: -5px 0;
+    }
+
+    100% {
+        translate: 5px 0;
+    }
+}
+
 
 /**========================================================================
  *                           Media Queries
@@ -210,5 +304,15 @@ body, html {
 @media screen and (max-width: 330px) {
     .title h1 {
         font-size: 8vw;
+    }
+
+    .games .game {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .login {
+        width: 100vw;
+        min-width: 250px;
     }
 }

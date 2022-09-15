@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="login">
+        <h1>Login</h1>
+        <form action="javascript:void(0)" id="login-form">
+            <label for="username">
+                <input type="text" input-attribute="login-input" name="username" id="username" placeholder="Username" autocomplete="off">
+                <div>
+                    <img src="assets/user.svg" alt="">
+                </div>
+            </label>
+            <label for="password">
+                <input type="password" input-attribute="login-input" name="password" id="password" placeholder="Password">
+                <div>
+                    <img src="assets/key.svg" alt="">
+                </div>
+            </label>
+
+            <p class="login-message warning" style="display: none;">
+                Bitte erneut anmelden
+            </p>
+
+            <input type="submit" id="login-btn" value="Einloggen">
+        </form>
+    </div>
+
+    <script src="./js/constants.js"></script>
+    <script type="module" src="./js/handler/login_handler.js" defer></script>
+    <script type="module" src="./js/login.js" defer></script>
+
+</body>
+</html>

@@ -11,18 +11,17 @@
 </head>
 <body>
 
-    <script src="./js/main.js"></script>
-
     <div class="logout">
         <img src="assets/logout.svg" alt="Logout Button">
     </div>
 
-    <div class="title">
-        <h1>Spiel auswählen</h1>
-    </div>
-
     <div class="games">
     </div>
+
+    <script src="./js/constants.js"></script>
+    <script type="module" src="./js/handler/game_handler.js"></script>
+    <script type="module" src="./js/handler/login_handler.js"></script>
+    <script type="module" src="./js/games.js" defer></script>
 
 </body>
 </html>
