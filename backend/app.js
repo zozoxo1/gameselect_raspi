@@ -1,5 +1,4 @@
 require('dotenv').config()
-const password_hashing = require('./password_hashing')
 const verify = require('./verify')
 const bcrypt = require('bcrypt')
 const express = require('express')
@@ -7,7 +6,6 @@ const jwt = require('jsonwebtoken')
 const cors = require("cors")
 const fs = require('fs')
 const games = require('./games')
-const bodyParser = require('body-parser')
 
 const app = express()
 
