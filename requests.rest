@@ -1,7 +1,23 @@
 POST http://127.0.0.1:5000/api/login
 content-type: application/json
+Access-Control-Allow-Origin: '*'
 
 {
     "username": "admin",
     "password": "admin"
 }
+
+
+###
+
+GET http://127.0.0.1:5000/api/games
+content-type: application/json
+Access-Control-Allow-Origin: '*'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkU0NnT1d5SkxkeFBCNzBvdEJWdU1HLkIyOVA3UTdYZmhtSzQwRTY3eS9DS3YwT2JsTHNtSmEiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMzI1MzE0LCJleHAiOjE2NjMzMjU2MTR9.lFfloicOwJtGLjYDxePx8HIh6PBrscVn7Dua1xUTER4
+
+###
+
+POST http://127.0.0.1:5000/api/token
+Content-Type: application/json
+Access-Control-Allow-Origin: '*'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmIkMTAkU0NnT1d5SkxkeFBCNzBvdEJWdU1HLkIyOVA3UTdYZmhtSzQwRTY3eS9DS3YwT2JsTHNtSmEiLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjYzMzI1MzE0LCJleHAiOjE2NjMzMjU2MTR9.lFfloicOwJtGLjYDxePx8HIh6PBrscVn7Dua1xUTER4
