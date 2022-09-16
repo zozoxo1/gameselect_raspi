@@ -1,5 +1,3 @@
-![my desk](https://prnt.sc/qYofiV0qC21a)
-
 # Game select
 
 With this Website, you can start and stop Games on a Raspberry Pi, using [SystemCtl](https://wiki.ubuntuusers.de/systemd/systemctl/).
