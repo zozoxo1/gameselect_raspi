@@ -36,6 +36,18 @@ Promise.resolve(gameHandler.getGames())
                 '</div>'
             )
 
+            game_div.querySelector('.start').addEventListener('click', () => {
+                gameHandler.startGame(`${element['game']}`)
+                gameHandler.stopGames()
+                alertify.success(`${element['game']} erfolgreich gestartet.`);
+            })
+
+            game_div.querySelector('.stop').addEventListener('click', () => {
+                gameHandler.stopGame(`${element['game']}`)
+                // FIXME nur aktivieren wenn button nicht disabled
+                alertify.success(`${element['game']} erfolgreich gestoppt.`);
+            })
+
             games.appendChild(game_div)
         })
     })
