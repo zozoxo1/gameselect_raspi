@@ -1,18 +1,37 @@
-import Login from "./handler/login_handler.js"
+import AuthenticationHandler from "./handler/authentication_handler.js"
 
-const login = new Login()
+const authenticationHandler = new AuthenticationHandler()
 
-window.addEventListener('DOMContentLoaded', () => {
+setInterval(() => {
+    Promise.resolve(authenticationHandler.isTokenAvailableAndValid())
+        .then(response => {
+            if(response)
+                window.location.href = window.location.origin
+        })
+}, 500)
 
-    setInterval(login.tokenAvailable(), 500)
+const login_form = document.querySelector("#login-form")
+const username_input = document.querySelector("#username")
+const password_input = document.querySelector("#password")
+const login_message = document.querySelector(".login-message")
 
-    const login_form = document.getElementById("login-form")
+login_form.addEventListener('submit', (e) => {
+    e.preventDefault()
 
-    login_form.addEventListener('submit', (e) => {
-        e.preventDefault()
+    if((username_input.value || password_input.value) === '') {
+        login_message.style.display = 'block'
+        login_message.innerHTML = "Username or password is empty"
+        return
+    }
 
-        login.login()
-        
-    })
-
+    Promise.resolve(authenticationHandler.login(username_input.value, password_input.value))
+        .then(response => {
+            if(response.token) {
+                window.localStorage.setItem('token', response.token)
+            } else {
+                login_message.style.display = 'block'
+                login_message.innerHTML = response.message
+            }
+        })
+    
 })

@@ -4,7 +4,8 @@ const verify = require('./verify')
 const bcrypt = require('bcrypt');
 const express = require('express')
 const jwt = require('jsonwebtoken')
-let cors = require("cors");
+const cors = require("cors");
+const fs = require('fs')
 
 const app = express()
 
@@ -34,6 +35,10 @@ app.post('/api/start', verify.verifyToken, verify.verifyAdminPermission, (req, r
         message: "Game started",
         auth_data: req.auth_data
     })   
+})
+
+app.get('/api/games', verify.verifyToken, (req, res) => {
+    res.json(JSON.parse(fs.readFileSync('./games/games.json', 'utf-8')))
 })
 
 app.post('/api/login', async (req, res) => {
