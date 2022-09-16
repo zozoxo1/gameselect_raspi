@@ -3,12 +3,20 @@
         "game": "Snake",
         "img_file": "assets/games/snake.png",
         "img_alt": "Game picture with snake game.",
-        "service_name": "snake"
+        "service_name": "snake",
+        "commands": {
+            "start": "sudo systemctl start snake",
+            "stop": "sudo systemctl stop snake"
+        }
     },
     {
         "game": "Tetris",
         "img_file": "assets/games/tetris.webp",
         "img_alt": "Game picture with tetris game.",
-        "service_name": "tetris"
+        "service_name": "tetris",
+        "commands": {
+            "start": "sudo systemctl start tetris",
+            "stop": "sudo systemctl stop tetris"
+        }
     }
 ]

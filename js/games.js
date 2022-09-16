@@ -38,7 +38,6 @@ Promise.resolve(gameHandler.getGames())
 
             game_div.querySelector('.start').addEventListener('click', () => {
                 gameHandler.startGame(`${element['game']}`)
-                gameHandler.stopGames()
                 alertify.success(`${element['game']} erfolgreich gestartet.`);
             })
 

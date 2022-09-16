@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const jwt_secret_token = process.env.JWT_SECRET_TOKEN
 
 module.exports.verifyAdminPermission = (req, res, next) => {
+    
     const role = req.auth_data.user.role
     if(!role) {
         res.status(403).json({

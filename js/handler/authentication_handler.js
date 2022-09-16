@@ -39,11 +39,9 @@ export default class AuthenticationHandler {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                headers: new Headers({
+                    'Access-Control-Allow-Origin': '*',
                     'Authorization': 'Bearer ' + stored_token
-                })
+                }
             }
         )
         .then(res => res.json())

@@ -1,11 +1,13 @@
 require('dotenv').config()
 const password_hashing = require('./password_hashing')
 const verify = require('./verify')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 const express = require('express')
 const jwt = require('jsonwebtoken')
-const cors = require("cors");
+const cors = require("cors")
 const fs = require('fs')
+const games = require('./games')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -24,6 +26,18 @@ users = [
     }
 ]
 
+app.post('/api/stop', verify.verifyToken, verify.verifyAdminPermission, (req, res) => {
+    if(req.body.game) {
+        games.stop(req.body.game)
+    } else {
+        games.stopAll()
+    }
+    
+    res.json({
+        message: "Games stopped"
+    })
+})
+
 app.post('/api/token', verify.verifyToken, (req, res) => {
     res.json({
         message: "token valid"
@@ -31,9 +45,19 @@ app.post('/api/token', verify.verifyToken, (req, res) => {
 })
 
 app.post('/api/start', verify.verifyToken, verify.verifyAdminPermission, (req, res) => {
+
+    if(!req.body.game) {
+        res.status(403).json({
+            message: "game missing"
+        })
+        return
+    }
+
+    games.stopAll()
+    games.start(req.body.game)
+
     res.json({
-        message: "Game started",
-        auth_data: req.auth_data
+        message: "Game started"
     })   
 })
 
